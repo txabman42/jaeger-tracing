@@ -22,6 +22,7 @@ public class ClientConfiguration {
         private String host;
         private Integer port;
         private String path;
+        private String pathRetry;
     }
 
     @Getter

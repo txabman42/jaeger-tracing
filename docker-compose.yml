@@ -17,3 +17,7 @@ services:
       - SPRING_APPLICATION_NAME=compute
     ports:
       - 8080:8080
+  jaeger:
+    image: jaegertracing/all-in-one:1.21
+    ports:
+      - 8090:16686

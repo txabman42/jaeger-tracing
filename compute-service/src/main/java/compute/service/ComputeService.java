@@ -3,10 +3,12 @@ package compute.service;
 import compute.client.FactClient;
 import compute.client.FibClient;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.stream.IntStream;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class ComputeService {
@@ -29,4 +31,13 @@ public class ComputeService {
                 .mapToLong(factClient::calculate)
                 .sum();
     }
+
+    public Long findFibRetry(int number) {
+        return fibClient.calculateRetry(number);
+    }
+
+    public Long findFactRetry(int number) {
+        return factClient.calculateRetry(number);
+    }
+
 }

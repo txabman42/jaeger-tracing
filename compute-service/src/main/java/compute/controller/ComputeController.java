@@ -28,4 +28,14 @@ public class ComputeController {
     public Long sumFact(@PathVariable int number) {
         return this.computeService.sumFact(number);
     }
+
+    @GetMapping("/fib/retry/{number}")
+    public Long fibRetry(@PathVariable int number) {
+        return this.computeService.findFibRetry(number);
+    }
+
+    @GetMapping("/fact/retry/{number}")
+    public Long factRetry(@PathVariable int number) {
+        return this.computeService.findFactRetry(number);
+    }
 }

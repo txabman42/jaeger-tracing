@@ -7,8 +7,25 @@ compute:
     host: localhost
     port: 8081
     path: /api/fact
+    pathRetry: /api/fact/retry
   fib:
     protocol: http
     host: localhost
     port: 8082
     path: /api/fib
+    pathRetry: /api/fib/retry
+
+
+resilience4j.retry:
+  instances:
+    factRetry:
+      maxRetryAttempts: 3
+      waitDuration: 5s
+      retryExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.lang.RuntimeException
+    fibRetry:
+      maxRetryAttempts: 3
+      waitDuration: 5s
+      retryExceptions:
+        - org.springframework.web.client.HttpServerErrorException
