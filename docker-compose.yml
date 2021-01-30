@@ -1,0 +1,19 @@
+version: "3"
+services:
+  fact-service:
+    image: xmartinezb/fact-service
+    environment:
+      - ACTIVE_PROFILE=prod
+      - SPRING_APPLICATION_NAME=fact
+  fib-service:
+    image: xmartinezb/fib-service
+    environment:
+      - ACTIVE_PROFILE=prod
+      - SPRING_APPLICATION_NAME=fib
+  compute-service:
+    image: xmartinezb/compute-service
+    environment:
+      - ACTIVE_PROFILE=prod
+      - SPRING_APPLICATION_NAME=compute
+    ports:
+      - 8080:8080

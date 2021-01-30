@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+compute:
+  fact:
+    protocol: http
+    host: fact-service
+    port: 8080
+    path: /api/fact
+  fib:
+    protocol: http
+    host: fib-service
+    port: 8080
+    path: /api/fib
